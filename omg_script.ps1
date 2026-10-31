@@ -3,6 +3,12 @@ py -3.11 -m venv .venv
 python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
 
+$env:MLFLOW_TRACKING_URI = "sqlite:///mlflow.db"
+python -m src.travel_ml.train_regression
+python -m src.travel_ml.train_classification
+python -m src.travel_ml.train_recommender
+
+dir artifacts
 
 docker build -t travel-price-api:local .
 docker run --rm -p 5000:5000 -v "${PWD}/artifacts:/app/artifacts" travel-price-api:local
