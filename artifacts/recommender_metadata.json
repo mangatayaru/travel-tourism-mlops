@@ -1,0 +1,7 @@
+{
+  "hotel_rows": 40552,
+  "user_rows": 1340,
+  "hotel_user_matches": 40552,
+  "unique_hotel_place_pairs": 9,
+  "approach": "Popularity ranking with optional place and daily-price filters"
+}

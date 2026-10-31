@@ -1,0 +1,25 @@
+{
+  "model_type": "RandomForestRegressor",
+  "target": "price",
+  "features": [
+    "from",
+    "to",
+    "flightType",
+    "time",
+    "distance",
+    "agency",
+    "travel_year",
+    "travel_month",
+    "travel_dayofweek",
+    "travel_day"
+  ],
+  "metrics": {
+    "mae": 0.05674370871722792,
+    "rmse": 0.7306017684396428,
+    "r2": 0.9999959491373641,
+    "train_rows": 217510,
+    "test_rows": 54378
+  },
+  "mlflow_run_id": "0c95880becfb4e3399ee40091447f82d",
+  "training_rows": 271888
+}
