@@ -1,0 +1,101 @@
+{
+  "flights.csv": {
+    "rows": 271888,
+    "columns": [
+      "travelCode",
+      "userCode",
+      "from",
+      "to",
+      "flightType",
+      "price",
+      "time",
+      "distance",
+      "agency",
+      "date"
+    ],
+    "missing_by_column": {
+      "travelCode": 0,
+      "userCode": 0,
+      "from": 0,
+      "to": 0,
+      "flightType": 0,
+      "price": 0,
+      "time": 0,
+      "distance": 0,
+      "agency": 0,
+      "date": 0
+    },
+    "duplicate_rows": 0,
+    "dtypes": {
+      "travelCode": "int64",
+      "userCode": "int64",
+      "from": "object",
+      "to": "object",
+      "flightType": "object",
+      "price": "float64",
+      "time": "float64",
+      "distance": "float64",
+      "agency": "object",
+      "date": "object"
+    }
+  },
+  "hotels.csv": {
+    "rows": 40552,
+    "columns": [
+      "travelCode",
+      "userCode",
+      "name",
+      "place",
+      "days",
+      "price",
+      "total",
+      "date"
+    ],
+    "missing_by_column": {
+      "travelCode": 0,
+      "userCode": 0,
+      "name": 0,
+      "place": 0,
+      "days": 0,
+      "price": 0,
+      "total": 0,
+      "date": 0
+    },
+    "duplicate_rows": 0,
+    "dtypes": {
+      "travelCode": "int64",
+      "userCode": "int64",
+      "name": "object",
+      "place": "object",
+      "days": "int64",
+      "price": "float64",
+      "total": "float64",
+      "date": "object"
+    }
+  },
+  "users.csv": {
+    "rows": 1340,
+    "columns": [
+      "code",
+      "company",
+      "name",
+      "gender",
+      "age"
+    ],
+    "missing_by_column": {
+      "code": 0,
+      "company": 0,
+      "name": 0,
+      "gender": 0,
+      "age": 0
+    },
+    "duplicate_rows": 0,
+    "dtypes": {
+      "code": "int64",
+      "company": "object",
+      "name": "object",
+      "gender": "object",
+      "age": "int64"
+    }
+  }
+}
