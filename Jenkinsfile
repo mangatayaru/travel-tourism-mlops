@@ -54,6 +54,28 @@ pipeline {
             }
         }
 
+        stage('Build API Docker Image') {
+            steps {
+                sh '''
+                    docker build \
+                        -t travel-price-api:${BUILD_NUMBER} \
+                        -t travel-price-api:local .
+                '''
+            }
+        }
+
+        stage('Build Streamlit Docker Image') {
+            steps {
+                sh '''
+                    docker build \
+                        -f Dockerfile.streamlit \
+                        -t travel-tourism-mlops-streamlit:${BUILD_NUMBER} \
+                        -t travel-tourism-mlops-streamlit:latest .
+                '''
+            }
+        }
+
+
     }
 
     
