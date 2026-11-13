@@ -42,25 +42,36 @@ pipeline {
         }
 
 
+        
         stage('API Contract Tests') {
             steps {
                 sh '''
                     . .venv-ci/bin/activate
-                    python -m pytest -v phase8/tests
+                    mkdir -p reports
+                    python -m pytest -v phase8/tests \
+                        --junitxml=reports/junit.xml
                 '''
             }
         }
+
     }
 
+    
     post {
+        always {
+            junit allowEmptyResults: true,
+                testResults: 'reports/junit.xml'
+
+            archiveArtifacts artifacts: 'artifacts/**/*',
+                            allowEmptyArchive: true
+
+            echo 'Jenkins CI pipeline finished.'
+        }
         success {
             echo 'SUCCESS: Model training and API tests completed.'
         }
         failure {
             echo 'FAILED: Check the stage logs for the error.'
         }
-        always {
-            echo 'Jenkins CI pipeline finished.'
         }
-    }
 }
