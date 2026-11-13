@@ -27,10 +27,12 @@ pipeline {
             }
         }
 
+        
         stage('Train Regression Model') {
             steps {
                 sh '''
                     . .venv-ci/bin/activate
+                    export MLFLOW_TRACKING_URI="sqlite:///mlflow-ci.db"
                     python -m src.travel_ml.train_regression \
                         --data data/flights.csv \
                         --output artifacts \
@@ -38,6 +40,7 @@ pipeline {
                 '''
             }
         }
+
 
         stage('API Contract Tests') {
             steps {
