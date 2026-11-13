@@ -1,0 +1,9 @@
+{
+  "from": "Delhi",
+  "to": "Mumbai",
+  "flightType": "business",
+  "time": "morning",
+  "distance": 1150,
+  "agency": "Airline",
+  "date": "2023-07-01"
+}
