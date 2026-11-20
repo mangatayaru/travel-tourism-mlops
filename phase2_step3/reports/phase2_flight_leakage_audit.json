@@ -1,0 +1,63 @@
+{
+  "audit_type": "read-only flight leakage and split audit",
+  "source": "C:\\Users\\kmkb5\\Downloads\\travel-tourism-mlops-capstone\\travel-tourism-mlops\\data\\flights.csv",
+  "rows_total": 271888,
+  "rows_with_valid_price": 271888,
+  "feature_columns_used_by_training": [
+    "from",
+    "to",
+    "flightType",
+    "time",
+    "distance",
+    "agency",
+    "travel_year",
+    "travel_month",
+    "travel_dayofweek",
+    "travel_day"
+  ],
+  "target_column": "price",
+  "target_in_feature_columns": false,
+  "identifier_columns_excluded_by_training": [
+    "travelCode",
+    "userCode"
+  ],
+  "random_split_replication": {
+    "method": "train_test_split(test_size=0.2, random_state=42)",
+    "train_rows": 217510,
+    "test_rows": 54378,
+    "distinct_travel_codes_train": 130503,
+    "distinct_travel_codes_test": 48937,
+    "travel_codes_in_both_train_and_test": 43496,
+    "overlap_share_of_test_codes": 0.8888162331160472
+  },
+  "repeated_feature_rows": {
+    "distinct_feature_groups_repeated": 60594,
+    "groups_with_one_unique_price": 60594,
+    "groups_with_multiple_prices": 0,
+    "rows_in_repeated_feature_groups": 182998
+  },
+  "travelCode_grouping": {
+    "distinct_travel_codes": 135944,
+    "codes_with_multiple_rows": 135944,
+    "multirow_codes_with_multiple_prices": 135944,
+    "multirow_codes_with_multiple_feature_rows": 135944,
+    "max_rows_per_travel_code": 2
+  },
+  "date_range": {
+    "unparseable_dates": 0,
+    "min": "2019-09-26 00:00:00",
+    "max": "2023-07-24 00:00:00"
+  },
+  "price_range": {
+    "min": 301.51,
+    "max": 1754.17,
+    "mean": 957.3750299387984,
+    "std": 362.31188995654736
+  },
+  "interpretation": [
+    "This audit does not train or modify a model.",
+    "Travel-code overlap across a random split is a potential dependence/leakage risk if rows sharing a travelCode are related.",
+    "Repeated feature rows with one price may make random holdout metrics optimistic.",
+    "A group-aware or chronological evaluation should be considered after interpreting these counts."
+  ]
+}

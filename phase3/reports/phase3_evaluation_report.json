@@ -1,0 +1,109 @@
+{
+  "phase": "Phase 3 - Existing model evaluation",
+  "evaluation_only": true,
+  "model_path": "C:\\Users\\kmkb5\\Downloads\\travel-tourism-mlops\\artifacts\\flight_price_model.joblib",
+  "dataset_path": "C:\\Users\\kmkb5\\Downloads\\travel-tourism-mlops\\data\\flights.csv",
+  "model_retrained": false,
+  "model_artifact_modified": false,
+  "rows_evaluated": 271888,
+  "feature_columns": [
+    "from",
+    "to",
+    "flightType",
+    "time",
+    "distance",
+    "agency",
+    "travel_year",
+    "travel_month",
+    "travel_dayofweek",
+    "travel_day"
+  ],
+  "target_column": "price",
+  "date_range": {
+    "min": "2019-09-26T00:00:00",
+    "max": "2023-07-24T00:00:00"
+  },
+  "split_results": [
+    {
+      "rows": 54378,
+      "r2": 0.9999959491373641,
+      "mae": 0.05674370871722624,
+      "rmse": 0.7306017684396433,
+      "actual_mean": 957.9494830630034,
+      "predicted_mean": 957.9441894129919,
+      "mean_absolute_percentage_error_pct": 0.008242840859236314,
+      "split": "random_row",
+      "distinct_travel_codes": 48937,
+      "train_rows": 217510,
+      "test_rows": 54378,
+      "travel_code_overlap_with_train": 43496
+    },
+    {
+      "rows": 54378,
+      "r2": 0.9999983114428602,
+      "mae": 0.03650659678087186,
+      "rmse": 0.47125406747130627,
+      "actual_mean": 957.2969780058111,
+      "predicted_mean": 957.294304759786,
+      "mean_absolute_percentage_error_pct": 0.00530740932205411,
+      "split": "group_aware",
+      "distinct_travel_codes": 27189,
+      "train_rows": 217510,
+      "test_rows": 54378,
+      "travel_code_overlap_with_train": 0
+    },
+    {
+      "rows": 54658,
+      "r2": 0.9999974682270727,
+      "mae": 0.04715602275365323,
+      "rmse": 0.5773205496722186,
+      "actual_mean": 962.0968112627611,
+      "predicted_mean": 962.0964007456262,
+      "mean_absolute_percentage_error_pct": 0.006878668188963201,
+      "split": "chronological_purged",
+      "distinct_travel_codes": 27329,
+      "train_rows": 217230,
+      "test_rows": 54658,
+      "cutoff_date": "2021-11-25T00:00:00",
+      "train_date_max": "2021-11-22T00:00:00",
+      "test_date_min": "2021-11-25T00:00:00",
+      "travel_code_overlap_with_train": 0,
+      "rows_removed_from_earlier_period_to_prevent_group_overlap": 0
+    }
+  ],
+  "error_analysis": {
+    "random_row": {
+      "median_absolute_error": 2.1600499167107046e-12,
+      "p90_absolute_error": 7.73070496506989e-12,
+      "p95_absolute_error": 9.777068044058979e-12,
+      "max_absolute_error": 29.846433333333152,
+      "within_5_percent_pct": 100.0,
+      "within_10_percent_pct": 100.0
+    },
+    "group_aware": {
+      "median_absolute_error": 2.1600499167107046e-12,
+      "p90_absolute_error": 7.73070496506989e-12,
+      "p95_absolute_error": 9.777068044058979e-12,
+      "max_absolute_error": 19.932537037037946,
+      "within_5_percent_pct": 100.0,
+      "within_10_percent_pct": 100.0
+    },
+    "chronological_purged": {
+      "median_absolute_error": 2.1600499167107046e-12,
+      "p90_absolute_error": 7.958078640513122e-12,
+      "p95_absolute_error": 1.000444171950221e-11,
+      "max_absolute_error": 18.051263888889594,
+      "within_5_percent_pct": 100.0,
+      "within_10_percent_pct": 100.0
+    }
+  },
+  "interpretation_notes": [
+    "All metrics are calculated by applying the existing saved model; this script does not fit or retrain it.",
+    "The random row split can place records sharing a travelCode in both partitions.",
+    "The group-aware split keeps every travelCode entirely in one partition.",
+    "The chronological split tests later dates and purges earlier training rows whose travelCode appears in the future test partition.",
+    "The chronological test set may be smaller or larger than the nominal test fraction because the split is date-based.",
+    "Compare all three results before deciding which validation strategy best represents deployment.",
+    "A saved model evaluated on a new split is not equivalent to a model trained on that split; use these results as diagnostic holdout evaluations, not as final unbiased estimates of a newly trained model."
+  ]
+}

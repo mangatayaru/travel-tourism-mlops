@@ -1,0 +1,23 @@
+PHASE 2 — STEP 1 DATASET QUALITY AUDIT
+Data folder: C:\Users\kmkb5\Downloads\travel-tourism-mlops-capstone\travel-tourism-mlops\data
+
+flights.csv: 271,888 rows x 10 columns
+  Exact duplicate rows: 0
+  Missing values total: 0
+  Missing required columns: None
+  No issues detected by these checks.
+
+hotels.csv: 40,552 rows x 8 columns
+  Exact duplicate rows: 0
+  Missing values total: 0
+  Missing required columns: None
+  No issues detected by these checks.
+
+users.csv: 1,340 rows x 5 columns
+  Exact duplicate rows: 0
+  Missing values total: 0
+  Missing required columns: None
+  No issues detected by these checks.
+
+
+Full column-level results are in phase2_dataset_audit.json.

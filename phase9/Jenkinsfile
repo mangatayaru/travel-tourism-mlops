@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+    options { timestamps() }
+    stages {
+        stage('Checkout') { steps { checkout scm } }
+        stage('Python setup') {
+            steps {
+                bat 'python --version'
+                bat 'python -m pip install -r phase5/requirements-phase5.txt'
+            }
+        }
+        stage('API contract tests') {
+            steps { bat 'python -m pytest -q' }
+        }
+    }
+    post { always { echo 'Pipeline finished; inspect test output and stage status.' } }
+}

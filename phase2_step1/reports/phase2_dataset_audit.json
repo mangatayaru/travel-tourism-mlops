@@ -1,0 +1,183 @@
+{
+  "audit_type": "read-only dataset quality audit",
+  "data_directory": "C:\\Users\\kmkb5\\Downloads\\travel-tourism-mlops-capstone\\travel-tourism-mlops\\data",
+  "datasets": {
+    "flights.csv": {
+      "file": "C:\\Users\\kmkb5\\Downloads\\travel-tourism-mlops-capstone\\travel-tourism-mlops\\data\\flights.csv",
+      "rows": 271888,
+      "columns": 10,
+      "column_names": [
+        "travelCode",
+        "userCode",
+        "from",
+        "to",
+        "flightType",
+        "price",
+        "time",
+        "distance",
+        "agency",
+        "date"
+      ],
+      "missing_by_column": {
+        "travelCode": 0,
+        "userCode": 0,
+        "from": 0,
+        "to": 0,
+        "flightType": 0,
+        "price": 0,
+        "time": 0,
+        "distance": 0,
+        "agency": 0,
+        "date": 0
+      },
+      "exact_duplicate_rows": 0,
+      "required_columns_missing": [],
+      "numeric_checks": {
+        "price": {
+          "non_numeric_non_null_values": 0,
+          "min": 301.51,
+          "max": 1754.17,
+          "negative_values": 0
+        },
+        "time": {
+          "non_numeric_non_null_values": 0,
+          "min": 0.44,
+          "max": 2.44,
+          "negative_values": 0
+        },
+        "distance": {
+          "non_numeric_non_null_values": 0,
+          "min": 168.22,
+          "max": 937.77,
+          "negative_values": 0
+        }
+      },
+      "date_checks": {
+        "date": {
+          "unparseable_non_null_values": 0,
+          "min": "2019-09-26 00:00:00",
+          "max": "2023-07-24 00:00:00"
+        }
+      },
+      "candidate_key_checks": {
+        "travelCode": {
+          "nulls": 0,
+          "distinct_values": 135944,
+          "duplicate_values_beyond_first": 135944
+        }
+      },
+      "warnings": []
+    },
+    "hotels.csv": {
+      "file": "C:\\Users\\kmkb5\\Downloads\\travel-tourism-mlops-capstone\\travel-tourism-mlops\\data\\hotels.csv",
+      "rows": 40552,
+      "columns": 8,
+      "column_names": [
+        "travelCode",
+        "userCode",
+        "name",
+        "place",
+        "days",
+        "price",
+        "total",
+        "date"
+      ],
+      "missing_by_column": {
+        "travelCode": 0,
+        "userCode": 0,
+        "name": 0,
+        "place": 0,
+        "days": 0,
+        "price": 0,
+        "total": 0,
+        "date": 0
+      },
+      "exact_duplicate_rows": 0,
+      "required_columns_missing": [],
+      "numeric_checks": {
+        "days": {
+          "non_numeric_non_null_values": 0,
+          "min": 1.0,
+          "max": 4.0,
+          "negative_values": 0
+        },
+        "price": {
+          "non_numeric_non_null_values": 0,
+          "min": 60.39,
+          "max": 313.02,
+          "negative_values": 0
+        },
+        "total": {
+          "non_numeric_non_null_values": 0,
+          "min": 60.39,
+          "max": 1252.08,
+          "negative_values": 0
+        }
+      },
+      "date_checks": {
+        "date": {
+          "unparseable_non_null_values": 0,
+          "min": "2019-09-26 00:00:00",
+          "max": "2023-07-13 00:00:00"
+        }
+      },
+      "candidate_key_checks": {
+        "travelCode": {
+          "nulls": 0,
+          "distinct_values": 40552,
+          "duplicate_values_beyond_first": 0
+        }
+      },
+      "warnings": []
+    },
+    "users.csv": {
+      "file": "C:\\Users\\kmkb5\\Downloads\\travel-tourism-mlops-capstone\\travel-tourism-mlops\\data\\users.csv",
+      "rows": 1340,
+      "columns": 5,
+      "column_names": [
+        "code",
+        "company",
+        "name",
+        "gender",
+        "age"
+      ],
+      "missing_by_column": {
+        "code": 0,
+        "company": 0,
+        "name": 0,
+        "gender": 0,
+        "age": 0
+      },
+      "exact_duplicate_rows": 0,
+      "required_columns_missing": [],
+      "numeric_checks": {
+        "age": {
+          "non_numeric_non_null_values": 0,
+          "min": 21.0,
+          "max": 65.0,
+          "negative_values": 0
+        }
+      },
+      "date_checks": {},
+      "candidate_key_checks": {
+        "code": {
+          "nulls": 0,
+          "distinct_values": 1340,
+          "duplicate_values_beyond_first": 0
+        }
+      },
+      "warnings": []
+    }
+  },
+  "missing_files": [],
+  "summary": {
+    "datasets_found": 3,
+    "datasets_expected": 3,
+    "warning_count": 0
+  },
+  "limitations": [
+    "A candidate ID column is not assumed to be a primary key; repeated IDs may be valid for transaction data.",
+    "Date parsing checks format compatibility, not business correctness.",
+    "This script does not change source CSV files or train models."
+  ]
+}

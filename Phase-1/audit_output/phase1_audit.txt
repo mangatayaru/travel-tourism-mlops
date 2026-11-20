@@ -1,0 +1,39 @@
+TRAVEL & TOURISM MLOPS — PHASE 1 LOCAL AUDIT
+Timestamp UTC: 2026-11-20T02:53:18.667303+00:00
+Project root: C:\Users\kmkb5\Downloads\travel-tourism-mlops
+
+DATASETS
+- data/flights.csv: 271888 rows, 10 columns
+- data/hotels.csv: 40552 rows, 8 columns
+- data/users.csv: 1340 rows, 5 columns
+
+EXPECTED FILES
+- [OK] README.md (4435 bytes)
+- [OK] requirements.txt (206 bytes)
+- [OK] Dockerfile (359 bytes)
+- [OK] Dockerfile.streamlit (288 bytes)
+- [OK] docker-compose.yml (548 bytes)
+- [OK] Jenkinsfile (2776 bytes)
+- [OK] api/app.py (2001 bytes)
+- [OK] streamlit_app/app.py (3030 bytes)
+- [OK] src/travel_ml/train_regression.py (4085 bytes)
+- [OK] src/travel_ml/train_classification.py (2778 bytes)
+- [OK] src/travel_ml/train_recommender.py (1227 bytes)
+- [OK] airflow/dags/travel_model_training.py (1865 bytes)
+- [OK] k8s/deployment.yaml (1134 bytes)
+- [OK] k8s/service.yaml (190 bytes)
+- [OK] tests/test_smoke.py (834 bytes)
+- [OK] artifacts/flight_price_model.joblib (22493187 bytes)
+- [OK] artifacts/gender_classifier.joblib (4202 bytes)
+- [MISSING] docs/DATASET_AUDIT.json
+- [OK] artifacts/flight_price_metrics.json (517 bytes)
+- [OK] artifacts/classification_metrics.json (1043 bytes)
+- [OK] artifacts/recommender_metadata.json (196 bytes)
+
+WARNINGS
+- Missing expected file: docs/DATASET_AUDIT.json
+
+LIMITATIONS
+- Does not load or execute model binaries.
+- Does not verify prediction quality, data leakage, API runtime, Docker, Jenkins, Airflow, or Kubernetes.
+- Does not modify project files; reports are written only to the selected output directory.

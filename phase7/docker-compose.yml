@@ -1,0 +1,21 @@
+services:
+  api:
+    build:
+      context: ..
+      dockerfile: phase7/Dockerfile
+    ports:
+      - "5000:5000"
+    environment:
+      PROJECT_ROOT: /app
+  ui:
+    image: python:3.11-slim
+    working_dir: /app
+    volumes:
+      - ../phase6:/app/phase6
+    command: sh -c "pip install --no-cache-dir streamlit requests && streamlit run phase6/app.py --server.address 0.0.0.0"
+    ports:
+      - "8501:8501"
+    environment:
+      FLASK_API_URL: http://api:5000
+    depends_on:
+      - api

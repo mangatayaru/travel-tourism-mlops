@@ -1,2 +1,0 @@
-# Phase 9 — Jenkins CI
-Commit the project to a Git repository and ensure `Jenkinsfile`, requirements, and tests are committed. Create a Pipeline job in Jenkins, point it to the repository, and run it. This Jenkinsfile is Windows-agent oriented (`bat`). For a Linux agent, replace `bat` with `sh`. Configure Python and Git on the Jenkins agent PATH. Do not expect a containerized Jenkins agent to access the host Docker daemon unless you deliberately configure that access; this pipeline only runs Python tests.

@@ -13,7 +13,7 @@ st.caption("Flight price estimates and hotel recommendations from the capstone d
 tab1, tab2, tab3 = st.tabs(["Flight price API", "Hotel recommendations", "Dataset overview"])
 with tab1:
     st.subheader("Predict a flight price")
-    api_url=st.text_input("Flask API URL","http://127.0.0.1:5000")
+    api_url = st.text_input("Flask API URL", "http://api:5000")
     c1,c2=st.columns(2)
     with c1:
         origin=st.text_input("Origin","New York")

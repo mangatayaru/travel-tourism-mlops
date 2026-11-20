@@ -1,0 +1,148 @@
+{
+  "audit_timestamp_utc": "2026-11-20T02:53:18.667303+00:00",
+  "project_root": "C:\\Users\\kmkb5\\Downloads\\travel-tourism-mlops",
+  "scope": "read-only file inventory, CSV header/row counts, JSON syntax checks",
+  "datasets": {
+    "data/flights.csv": {
+      "exists": true,
+      "columns": 10,
+      "header": [
+        "travelCode",
+        "userCode",
+        "from",
+        "to",
+        "flightType",
+        "price",
+        "time",
+        "distance",
+        "agency",
+        "date"
+      ],
+      "data_rows": 271888
+    },
+    "data/hotels.csv": {
+      "exists": true,
+      "columns": 8,
+      "header": [
+        "travelCode",
+        "userCode",
+        "name",
+        "place",
+        "days",
+        "price",
+        "total",
+        "date"
+      ],
+      "data_rows": 40552
+    },
+    "data/users.csv": {
+      "exists": true,
+      "columns": 5,
+      "header": [
+        "code",
+        "company",
+        "name",
+        "gender",
+        "age"
+      ],
+      "data_rows": 1340
+    }
+  },
+  "expected_files": {
+    "README.md": {
+      "exists": true,
+      "size_bytes": 4435
+    },
+    "requirements.txt": {
+      "exists": true,
+      "size_bytes": 206
+    },
+    "Dockerfile": {
+      "exists": true,
+      "size_bytes": 359
+    },
+    "Dockerfile.streamlit": {
+      "exists": true,
+      "size_bytes": 288
+    },
+    "docker-compose.yml": {
+      "exists": true,
+      "size_bytes": 548
+    },
+    "Jenkinsfile": {
+      "exists": true,
+      "size_bytes": 2776
+    },
+    "api/app.py": {
+      "exists": true,
+      "size_bytes": 2001
+    },
+    "streamlit_app/app.py": {
+      "exists": true,
+      "size_bytes": 3030
+    },
+    "src/travel_ml/train_regression.py": {
+      "exists": true,
+      "size_bytes": 4085
+    },
+    "src/travel_ml/train_classification.py": {
+      "exists": true,
+      "size_bytes": 2778
+    },
+    "src/travel_ml/train_recommender.py": {
+      "exists": true,
+      "size_bytes": 1227
+    },
+    "airflow/dags/travel_model_training.py": {
+      "exists": true,
+      "size_bytes": 1865
+    },
+    "k8s/deployment.yaml": {
+      "exists": true,
+      "size_bytes": 1134
+    },
+    "k8s/service.yaml": {
+      "exists": true,
+      "size_bytes": 190
+    },
+    "tests/test_smoke.py": {
+      "exists": true,
+      "size_bytes": 834
+    },
+    "artifacts/flight_price_model.joblib": {
+      "exists": true,
+      "size_bytes": 22493187
+    },
+    "artifacts/gender_classifier.joblib": {
+      "exists": true,
+      "size_bytes": 4202
+    },
+    "docs/DATASET_AUDIT.json": {
+      "exists": false,
+      "size_bytes": null
+    },
+    "artifacts/flight_price_metrics.json": {
+      "exists": true,
+      "size_bytes": 517,
+      "parse_status": "valid JSON"
+    },
+    "artifacts/classification_metrics.json": {
+      "exists": true,
+      "size_bytes": 1043,
+      "parse_status": "valid JSON"
+    },
+    "artifacts/recommender_metadata.json": {
+      "exists": true,
+      "size_bytes": 196,
+      "parse_status": "valid JSON"
+    }
+  },
+  "warnings": [
+    "Missing expected file: docs/DATASET_AUDIT.json"
+  ],
+  "limitations": [
+    "Does not load or execute model binaries.",
+    "Does not verify prediction quality, data leakage, API runtime, Docker, Jenkins, Airflow, or Kubernetes.",
+    "Does not modify project files; reports are written only to the selected output directory."
+  ]
+}

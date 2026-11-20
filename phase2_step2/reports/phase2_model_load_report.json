@@ -1,0 +1,76 @@
+{
+  "project_root": "C:\\Users\\kmkb5\\Downloads\\travel-tourism-mlops-capstone\\travel-tourism-mlops",
+  "models": {
+    "flight_price": {
+      "artifact": "C:\\Users\\kmkb5\\Downloads\\travel-tourism-mlops-capstone\\travel-tourism-mlops\\artifacts\\flight_price_model.joblib",
+      "label": "flight_price",
+      "python_type": "sklearn.pipeline.Pipeline",
+      "has_predict": true,
+      "n_features_in": 10,
+      "feature_names_in": [
+        "from",
+        "to",
+        "flightType",
+        "time",
+        "distance",
+        "agency",
+        "travel_year",
+        "travel_month",
+        "travel_dayofweek",
+        "travel_day"
+      ],
+      "pipeline_steps": [
+        "preprocess",
+        "model"
+      ],
+      "final_estimator_type": "sklearn.ensemble._forest.RandomForestRegressor",
+      "final_estimator_n_features_in": 30,
+      "load_status": "SUCCESS"
+    },
+    "gender_classifier": {
+      "artifact": "C:\\Users\\kmkb5\\Downloads\\travel-tourism-mlops-capstone\\travel-tourism-mlops\\artifacts\\gender_classifier.joblib",
+      "label": "gender_classifier",
+      "python_type": "sklearn.pipeline.Pipeline",
+      "has_predict": true,
+      "n_features_in": 2,
+      "feature_names_in": [
+        "company",
+        "age"
+      ],
+      "pipeline_steps": [
+        "preprocess",
+        "model"
+      ],
+      "final_estimator_type": "sklearn.linear_model._logistic.LogisticRegression",
+      "final_estimator_n_features_in": 6,
+      "load_status": "SUCCESS",
+      "prediction_test": "Not run in this step: the classifier's exact training feature transformation must be checked first."
+    }
+  },
+  "warnings": [],
+  "flight_prediction_test": {
+    "status": "SUCCESS",
+    "input_rows": 5,
+    "input_columns": [
+      "from",
+      "to",
+      "flightType",
+      "time",
+      "distance",
+      "agency",
+      "travel_year",
+      "travel_month",
+      "travel_dayofweek",
+      "travel_day"
+    ],
+    "prediction_count": 5,
+    "sample_predictions": [
+      1434.3800000000026,
+      1292.2900000000054,
+      1487.5200000000063,
+      1127.3599999999965,
+      1684.0499999999945
+    ],
+    "note": "Predictions are a load/shape smoke test, not an accuracy or leakage evaluation."
+  }
+}

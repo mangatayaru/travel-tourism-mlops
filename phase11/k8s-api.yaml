@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: travel-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: travel-api
+  template:
+    metadata:
+      labels:
+        app: travel-api
+    spec:
+      containers:
+        - name: api
+          image: YOUR_REGISTRY/travel-api:latest
+          ports:
+            - containerPort: 5000
+          env:
+            - name: PROJECT_ROOT
+              value: /app
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 5000
+            initialDelaySeconds: 15
+            periodSeconds: 10
+          resources:
+            requests:
+              cpu: 100m
+              memory: 256Mi
+            limits:
+              cpu: 500m
+              memory: 1Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: travel-api
+spec:
+  selector:
+    app: travel-api
+  ports:
+    - port: 5000
+      targetPort: 5000
+  type: ClusterIP
